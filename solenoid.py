@@ -4,7 +4,7 @@ import gpiozero
 class Solenoid:
     gpio = None
 
-    def __init__(self, gpio):
+    def __init__(self, gpio: int):
         self.gpio = gpio
         self._output_device = gpiozero.OutputDevice(gpio)
 

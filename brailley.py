@@ -4,7 +4,7 @@ from mapper import Mapper
 
 
 class Brailley:
-    def __init__(self, mapping):
+    def __init__(self, mapping: dict[Directions, Solenoid]):
         if len(mapping) != len(Directions):
             raise Exception("Mapping should contemplate all directions")
         if len(set(mapping.values())) != len(Directions):

@@ -3,7 +3,7 @@ from directions import Directions
 
 class Mapper:
     @classmethod
-    def map(cls, letter: str):
+    def map(cls, letter: str) -> list[Directions]:
         match letter:
             case "a":
                 return [Directions.NW]
