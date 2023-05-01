@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "brailley"
+version = "0.1.0"
+description = ""
+authors = ["Vinícius Couto Tasso <vcoutasso@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pytesseract = "^0.3.10"
+gpiozero = "^1.6.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
