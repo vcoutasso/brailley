@@ -10,6 +10,8 @@ readme = "README.md"
 python = "^3.11"
 pytesseract = "^0.3.10"
 gpiozero = "^1.6.2"
+picamera = "^1.13"
+pigpio = "^1.78"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.3.1"
