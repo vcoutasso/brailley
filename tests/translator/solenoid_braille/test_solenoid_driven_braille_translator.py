@@ -2,18 +2,18 @@ from brailley.translator.solenoid_braille.solenoid_driven_braille_translator imp
     SolenoidDrivenBrailleTranslator,
 )
 from brailley.translator.solenoid_braille.directions import Directions
-import pytest
+from unittest import TestCase
 
 
-class TestSolenoidDrivenBrailleTranslator:
+class TestSolenoidDrivenBrailleTranslator(TestCase):
     def test_init_should_fail_with_incomplete_directions(self):
-        with pytest.raises(Exception):
+        with self.assertRaises(Exception):
             mapping = {Directions.SW: None}
 
             SolenoidDrivenBrailleTranslator(mapping)
 
     def test_init_should_fail_with_duplicated_directions(self):
-        with pytest.raises(Exception):
+        with self.assertRaises(Exception):
             mapping = {Directions.SW: None, Directions.SW: None}
 
             SolenoidDrivenBrailleTranslator(mapping)
@@ -31,7 +31,7 @@ class TestSolenoidDrivenBrailleTranslator:
         SolenoidDrivenBrailleTranslator(mapping)
 
     def test_init_should_fail_with_duplicated_solenoids(self):
-        with pytest.raises(Exception):
+        with self.assertRaises(Exception):
             mapping = {
                 Directions.NW: 1,
                 Directions.W: 1,

@@ -1,18 +1,20 @@
 from brailley.translator.solenoid_braille.directions import Directions
 from brailley.translator.solenoid_braille.braille_mapper import BrailleMapper
 import collections
+from unittest import TestCase
 
 
-class TestBrailleMapper:
+class TestBrailleMapper(TestCase):
     def test_unsupported_mapping(self):
-        assert BrailleMapper.map("this is an unsupported string") == []
+        self.assertEqual(BrailleMapper.map("this is an unsupported string"), [])
 
     def test_mappings(self):
         for key in self._braille_lookup.keys():
-            print(key)
-            assert collections.Counter(BrailleMapper.map(key)) == collections.Counter(
-                self._lookup_to_directions(key)
-            ), f"Representation differs for {key}"
+            self.assertEqual(
+                collections.Counter(BrailleMapper.map(key)),
+                collections.Counter(self._lookup_to_directions(key)),
+                msg=f"Representation differs for {key}",
+            )
 
     def _lookup_to_directions(self, key):
         directions = []
