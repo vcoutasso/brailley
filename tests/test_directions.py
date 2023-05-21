@@ -1,4 +1,4 @@
-from directions import Directions
+from brailley.directions import Directions
 
 
 class TestDirections:

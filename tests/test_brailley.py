@@ -1,5 +1,5 @@
-from directions import Directions
-from brailley import Brailley
+from brailley.directions import Directions
+from brailley.brailley import Brailley
 import pytest
 
 

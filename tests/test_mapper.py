@@ -1,5 +1,5 @@
-from directions import Directions
-from mapper import Mapper
+from brailley.directions import Directions
+from brailley.mapper import Mapper
 import collections
 
 

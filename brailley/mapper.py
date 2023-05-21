@@ -1,4 +1,4 @@
-from directions import Directions
+from .directions import Directions
 
 
 class Mapper:

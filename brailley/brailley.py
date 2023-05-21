@@ -1,6 +1,6 @@
-from directions import Directions
-from solenoid import Solenoid
-from mapper import Mapper
+from .directions import Directions
+from .solenoid import Solenoid
+from .mapper import Mapper
 
 
 class Brailley:

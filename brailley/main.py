@@ -1,6 +1,6 @@
-from directions import Directions
-from brailley import Brailley
-from solenoid import Solenoid
+from .directions import Directions
+from .brailley import Brailley
+from .solenoid import Solenoid
 from PIL import Image
 import pytesseract
 import time
