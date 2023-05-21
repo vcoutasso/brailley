@@ -1,7 +1,8 @@
+from abc import ABC, abstractmethod
 from PIL.Image import Image
-import pytesseract
 
 
-class OCR:
+class OCR(ABC):
+    @abstractmethod
     def image_to_string(self, image: Image) -> str:
-        return pytesseract.image_to_string(image, config="")
+        pass

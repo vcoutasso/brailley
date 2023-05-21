@@ -6,7 +6,7 @@ from unittest.mock import Mock
 from unittest import TestCase
 
 
-class TestCamera(TestCase):
+class TestRPICamera(TestCase):
     def setUp(self) -> None:
         self.flashMock = Mock()
         self.fakeCamera = FakeCameraDevice()
