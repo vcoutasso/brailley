@@ -1,4 +1,4 @@
-from brailley.directions import Directions
+from brailley.translator.solenoid_braille.directions import Directions
 
 
 class TestDirections:
