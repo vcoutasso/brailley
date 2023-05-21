@@ -1,23 +1,15 @@
-from .directions import Directions
-from .solenoid import Solenoid
-from .mapper import Mapper
+from translator.translator import Translator
+from reader.reader import Reader
 
 
 class Brailley:
-    def __init__(self, mapping: dict[Directions, Solenoid]):
-        if len(mapping) != len(Directions):
-            raise Exception("Mapping should contemplate all directions")
-        if len(set(mapping.values())) != len(Directions):
-            raise Exception("Mapping should not contain duplicated solenoids")
+    _translator: Translator
+    _reader: Reader
 
-        self.mapping = mapping
+    def __init__(self, translator: Translator, reader: Reader):
+        self._translator = translator
+        self.reader = reader
 
-    def display(self, letter: str):
-        self.reset()
-
-        for pos in Mapper.map(letter):
-            self.mapping[pos].on()
-
-    def reset(self):
-        for solenoid in self.mapping.values():
-            solenoid.off()
+    def capture_and_display(self):
+        input_string = self._reader.read()
+        self._translator.translate(input_string)

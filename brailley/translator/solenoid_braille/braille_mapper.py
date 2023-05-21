@@ -1,7 +1,7 @@
 from .directions import Directions
 
 
-class Mapper:
+class BrailleMapper:
     @classmethod
     def map(cls, letter: str) -> list[Directions]:
         match letter:
