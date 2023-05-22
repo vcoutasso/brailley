@@ -6,7 +6,7 @@ from .translator.solenoid_braille.solenoid import Solenoid
 from .reader.image_reader.image_reader import ImageReader
 from .reader.image_reader.tesseract_ocr import TesseractOCR
 from .reader.image_reader.rpi_camera import RPICamera
-from .reader.image_reader.flash import LEDFlash
+from .reader.image_reader.led_flash import LEDFlash
 from .reader.image_reader.preprocessing import (
     GrayscaleFilter,
     BinaryFilter,
