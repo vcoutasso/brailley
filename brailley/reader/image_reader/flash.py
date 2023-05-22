@@ -1,26 +1,42 @@
 from abc import ABC, abstractmethod
-from gpiozero.pins.pigpio import PiGPIOFactory
-from gpiozero import LED
 
 
 class Flash(ABC):
+    """
+    Abstract base class representing a flash.
+
+    This class defines the common interface for flashes. Subclasses must implement the 'on' and 'off' methods.
+
+    Attributes:
+        None
+    """
+
     @abstractmethod
     def on(self):
+        """
+        Turn on the flash.
+
+        This method should be implemented by subclasses to turn on the flash.
+
+        Returns:
+            None
+
+        Raises:
+            NotImplementedError: If the method is not implemented by the subclass.
+        """
         pass
 
     @abstractmethod
     def off(self):
+        """
+        Turn off the flash.
+
+        This method should be implemented by subclasses to turn off the flash.
+
+        Returns:
+            None
+
+        Raises:
+            NotImplementedError: If the method is not implemented by the subclass.
+        """
         pass
-
-
-class LEDFlash(Flash):
-    _led: LED
-
-    def __init__(self, led_pin):
-        self._led = LED(led_pin, pin_factory=PiGPIOFactory())
-
-    def on(self):
-        self._led.on()
-
-    def off(self):
-        self._led.off()
