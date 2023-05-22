@@ -2,8 +2,35 @@ from .directions import Directions
 
 
 class BrailleMapper:
+    """
+    Class representing a Braille mapper.
+
+    This class provides a mapping of letters to Braille directions.
+
+    Attributes:
+        None
+
+    Methods:
+        map(letter: str) -> list[Directions]: Map a letter to a list of Braille directions.
+    """
+
     @classmethod
     def map(cls, letter: str) -> list[Directions]:
+        """
+        Map a letter to a list of Braille directions.
+
+        This method takes a letter as input and returns a list of Braille directions corresponding to that letter.
+        If the letter is not recognized, an empty list is returned.
+
+        Args:
+            letter (str): The letter to map to Braille directions.
+
+        Returns:
+            list[Directions]: A list of Braille directions.
+
+        Raises:
+            None
+        """
         match letter:
             case "a":
                 return [Directions.NW]
