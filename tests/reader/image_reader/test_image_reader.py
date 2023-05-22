@@ -17,7 +17,7 @@ class TestImageReader(TestCase):
 
         self.mockCamera.capture.assert_called_once()
 
-    def test_read_shouldGetApplyImagePreprocessing(self):
+    def test_read_shouldApplyImagePreprocessing(self):
         self.sut.read()
 
         self.mockFilter.apply.assert_called_once()
