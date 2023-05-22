@@ -1,10 +1,10 @@
-from io import BytesIO
+from .camera_io_device import CameraIODevice
+from .flash import Flash
+from .camera import Camera
 from PIL import Image as Img
 from PIL.Image import Image
+from io import BytesIO
 from time import sleep
-from .flash import Flash
-from .camera_io_device import CameraIODevice
-from .camera import Camera
 
 
 class RPICamera(Camera):

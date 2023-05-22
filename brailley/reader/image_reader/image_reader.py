@@ -1,7 +1,7 @@
-from ..reader import Reader
-from .camera import Camera
 from .preprocessing import ImageFilter
+from .camera import Camera
 from .ocr import OCR
+from brailley.reader import Reader
 
 
 class ImageReader(Reader):

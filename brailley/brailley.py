@@ -1,18 +1,20 @@
-from .translator.solenoid_braille.solenoid_driven_braille_translator import (
-    SolenoidDrivenBrailleTranslator,
-)
-from .translator.solenoid_braille.directions import Directions
-from .translator.solenoid_braille.solenoid import Solenoid
-from .reader.image_reader.image_reader import ImageReader
-from .reader.image_reader.tesseract_ocr import TesseractOCR
-from .reader.image_reader.rpi_camera import RPICamera
-from .reader.image_reader.led_flash import LEDFlash
 from .reader.image_reader.preprocessing import (
     GrayscaleFilter,
     BinaryFilter,
     MultipleFiltersDecorator,
 )
-from picamera import PiCamera
+from .translator.solenoid_braille import SolenoidDrivenBrailleTranslator
+from .translator.solenoid_braille import Directions
+from .translator.solenoid_braille import Solenoid
+from .reader.image_reader import TesseractOCR
+from .reader.image_reader import ImageReader
+from .reader.image_reader import RPICamera
+from .reader.image_reader import LEDFlash
+
+try:
+    from picamera import PiCamera
+except Exception:
+    print("Could not import PiCamera, reading from camera will not work")
 
 
 class Brailley:
@@ -59,7 +61,10 @@ class Brailley:
 
         ocr = TesseractOCR()
         flash = LEDFlash(17)
-        camera_device = PiCamera(resolution=(1280, 720))
+        try:
+            camera_device = PiCamera(resolution=(1280, 720))
+        except Exception:
+            camera_device = None
         camera = RPICamera(flash=flash, camera_io_device=camera_device)
         filter = MultipleFiltersDecorator(filters=[GrayscaleFilter(), BinaryFilter()])
 
