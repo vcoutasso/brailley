@@ -1,4 +1,4 @@
-from image_filter import ImageFilter
+from .image_filter import ImageFilter
 import numpy as np
 import cv2
 
