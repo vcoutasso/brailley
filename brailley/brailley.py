@@ -12,16 +12,42 @@ from .reader.image_reader.preprocessing import (
     BinaryFilter,
     MultipleFiltersDecorator,
 )
-from .translator.translator import Translator
-from .reader.reader import Reader
 from picamera import PiCamera
 
 
 class Brailley:
-    _translator: Translator
-    _reader: Reader
+    """
+    Brailley class for capturing and displaying braille characters.
+
+    This class provides a simple interface for capturing images using a Raspberry Pi camera,
+    performing OCR on the captured image, and translating the recognized characters into braille
+    using solenoids.
+
+    Attributes:
+        _translator (Translator): An instance of the translator used for braille translation.
+        _reader (Reader): An instance of the reader used for image capture and OCR.
+
+    Methods:
+        capture_and_display(): Capture an image, perform OCR, and display the recognized braille characters.
+
+    """
 
     def __init__(self):
+        """
+        Initialize the Brailley instance.
+
+        This method sets up the necessary components for image capture, OCR, and braille translation.
+        It creates instances of the necessary classes and configures them with appropriate parameters.
+
+        Args:
+            None
+
+        Returns:
+            None
+
+        Raises:
+            None
+        """
         mapping = {
             Directions.NW: Solenoid(13),
             Directions.W: Solenoid(19),
@@ -41,6 +67,22 @@ class Brailley:
         self._reader = ImageReader(ocr=ocr, camera=camera, filter=filter)
 
     def capture_and_display(self):
+        """
+        Capture an image, perform OCR, and display the recognized braille characters.
+
+        This method captures an image using the Raspberry Pi camera, applies image preprocessing,
+        performs OCR on the preprocessed image, translates the recognized characters into braille,
+        and displays the resulting braille characters.
+
+        Args:
+            None
+
+        Returns:
+            None
+
+        Raises:
+            None
+        """
         input_string = self._reader.read()
         print(f"Now displaying:\n{input_string}")
         self._translator.translate(input_string)
