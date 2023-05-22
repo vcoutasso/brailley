@@ -1,6 +1,6 @@
 from PIL.Image import Image
-import pytesseract
 from .ocr import OCR
+import pytesseract
 
 
 class TesseractOCR(OCR):

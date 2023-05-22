@@ -1,4 +1,4 @@
-from brailley.reader.image_reader.image_reader import ImageReader
+from brailley.reader.image_reader import ImageReader
 from unittest import TestCase
 from unittest.mock import Mock
 

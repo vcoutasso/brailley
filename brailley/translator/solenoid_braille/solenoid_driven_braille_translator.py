@@ -1,7 +1,7 @@
+from .braille_mapper import BrailleMapper
 from .directions import Directions
 from .solenoid import Solenoid
-from .braille_mapper import BrailleMapper
-from ..translator import Translator
+from brailley.translator import Translator
 
 
 class SolenoidDrivenBrailleTranslator(Translator):
