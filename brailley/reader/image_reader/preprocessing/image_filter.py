@@ -68,7 +68,7 @@ class ImageFilter(ABC):
         Raises:
             None
         """
-        return cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
+        return np.array(image)
 
     def npy_to_pillow(self, array: np.ndarray) -> Image:
         """
@@ -85,4 +85,4 @@ class ImageFilter(ABC):
         Raises:
             None
         """
-        return Img.fromarray(cv2.cvtColor(array, cv2.COLOR_BGR2RGB))
+        return Img.fromarray(array)

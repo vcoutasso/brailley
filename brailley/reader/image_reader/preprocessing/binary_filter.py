@@ -31,10 +31,11 @@ class BinaryFilter(ImageFilter):
             None
         """
         try:
-            grayscale_array = cv2.cvtColor(array, cv2.COLOR_BGR2GRAY)
+            # try to convert to grayscale using numpy as np
+            grayscale_array = array.convert('L') # convert to grayscale
+
         except Exception:
             grayscale_array = array
-        _, binary_array = cv2.threshold(
-            grayscale_array, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU
-        )
+            thresh = 128
+            binary_array = np.where(np.array(grayscale_array).astype('uint8') > thresh, 255, 0)
         return binary_array

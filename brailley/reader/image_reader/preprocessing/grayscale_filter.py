@@ -30,4 +30,4 @@ class GrayscaleFilter(ImageFilter):
         Raises:
             None
         """
-        return cv2.cvtColor(array, cv2.COLOR_BGR2GRAY)
+        return array.convert('L')
