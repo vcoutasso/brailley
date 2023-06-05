@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 from PIL import Image as Img
 from PIL.Image import Image
 import numpy as np
-import cv2
+
 
 
 class ImageFilter(ABC):
