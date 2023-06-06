@@ -30,4 +30,4 @@ class GrayscaleFilter(ImageFilter):
         Raises:
             None
         """
-        return array.convert('L')
+        return self.pillow_to_npy(self.npy_to_pillow(array).convert('L'))
