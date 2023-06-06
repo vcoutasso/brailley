@@ -1,6 +1,6 @@
 from .image_filter import ImageFilter
 import numpy as np
-import cv2
+
 
 
 class NoiseRemovalFilter(ImageFilter):
