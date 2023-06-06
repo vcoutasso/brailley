@@ -10,6 +10,7 @@ from .reader.image_reader import TesseractOCR
 from .reader.image_reader import ImageReader
 from .reader.image_reader import RPICamera
 from .reader.image_reader import LEDFlash
+import time
 
 try:
     from picamera import PiCamera
@@ -90,4 +91,8 @@ class Brailley:
         """
         input_string = self._reader.read()
         print(f"Now displaying:\n{input_string}")
-        self._translator.translate(input_string)
+        for ch in input_string.lower():
+            self._translator.translate(ch)
+            time.sleep(2)
+
+        self._translator._reset()

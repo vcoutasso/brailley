@@ -56,6 +56,8 @@ class SolenoidDrivenBrailleTranslator(Translator):
         """
         self._reset()
 
+        print(f"Displaying: {letter}")
+
         for pos in BrailleMapper.map(letter):
             self.mapping[pos].on()
 
