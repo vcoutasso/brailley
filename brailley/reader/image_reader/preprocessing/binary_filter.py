@@ -30,12 +30,6 @@ class BinaryFilter(ImageFilter):
         Raises:
             None
         """
-        try:
-            # try to convert to grayscale using numpy as np
-            grayscale_array = array.convert('L') # convert to grayscale
-
-        except Exception:
-            grayscale_array = array
-            thresh = 128
-            binary_array = np.where(np.array(grayscale_array).astype('uint8') > thresh, 255, 0)
+        thresh = 128
+        binary_array = np.where(np.array(array).astype('uint8') > thresh, 255, 0)
         return binary_array
