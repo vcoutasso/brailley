@@ -72,6 +72,8 @@ class Brailley:
         self._translator = SolenoidDrivenBrailleTranslator(mapping)
         self._reader = ImageReader(ocr=ocr, camera=camera, filter=filter)
 
+        print("Armed and ready!")
+
     def capture_and_display(self):
         """
         Capture an image, perform OCR, and display the recognized braille characters.
@@ -89,6 +91,7 @@ class Brailley:
         Raises:
             None
         """
+        print("Reading text from image...")
         input_string = self._reader.read()
         print(f"Read:\n{input_string}")
         clean_string = ' '.join(input_string.split()).lower()
