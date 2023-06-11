@@ -1,4 +1,5 @@
 from .image_filter import ImageFilter
+from PIL.Image import Image
 import numpy as np
 
 
@@ -29,6 +30,11 @@ class MultipleFiltersDecorator(ImageFilter):
             None
         """
         self._filters = filters
+
+    def apply(self, image: Image) -> Image:
+        for filter in self._filters:
+            image = filter.apply(image)
+        return image
 
     def apply_filter(self, array: np.ndarray) -> np.ndarray:
         """

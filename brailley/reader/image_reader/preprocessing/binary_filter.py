@@ -1,4 +1,5 @@
 from .image_filter import ImageFilter
+from PIL.Image import Image
 import numpy as np
 
 
@@ -7,29 +8,29 @@ class BinaryFilter(ImageFilter):
     """
     Concrete class representing a binary image filter.
 
-    This class extends the abstract class ImageFilter and implements
-    the 'apply_filter' method to apply a binary image filter.
+    This class extends the abstract class ImageFilter and overrides
+    the 'apply' method to apply a binary image filter.
 
     Attributes:
-        None
+        threshold (Int): binary filter threshold. 64 by default
     """
 
+    threshold = 64
+
+    """
+    Apply the binary filter to the given image.
+
+    Args:
+        image (Image): The image to apply the binary filter to.
+
+    Returns:
+        Image: The filtered binary image.
+
+    Raises:
+        None
+    """
+    def apply(self, image: Image) -> Image:
+        return image.convert('L').point(lambda p: 255 if p > self.threshold else 0).convert('1')
+
     def apply_filter(self, array: np.ndarray) -> np.ndarray:
-        """
-        Apply the binary filter to the given image array.
-
-        This method applies a binary image filter to the given image array. It converts the array to grayscale, applies
-        thresholding using Otsu's method, and returns the resulting binary array.
-
-        Args:
-            array (np.ndarray): The image array to apply the binary filter to.
-
-        Returns:
-            np.ndarray: The filtered binary image array.
-
-        Raises:
-            None
-        """
-        thresh = 128
-        binary_array = np.where(np.array(array).astype('uint8') > thresh, 255, 0)
-        return binary_array
+        raise Exception("Not implemented")

@@ -29,4 +29,4 @@ class TesseractOCR(OCR):
         Raises:
             None
         """
-        return pytesseract.image_to_string(image, config="")
+        return pytesseract.image_to_string(image, config="--psm 6")

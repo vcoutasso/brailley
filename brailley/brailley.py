@@ -90,8 +90,11 @@ class Brailley:
             None
         """
         input_string = self._reader.read()
-        print(f"Now displaying:\n{input_string}")
-        for ch in input_string.lower():
+        print(f"Read:\n{input_string}")
+        clean_string = ' '.join(input_string.split()).lower()
+        final_string = filter(lambda x: x == " " or x.isalpha(), clean_string)
+        print(f"Will display:\n{''.join(final_string)}")
+        for ch in final_string:
             self._translator.translate(ch)
             time.sleep(2)
 
